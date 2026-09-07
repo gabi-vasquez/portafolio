@@ -1,0 +1,68 @@
+---
+const year = new Date().getFullYear();
+const links = [
+  { href: "#home", label: "Inicio" },
+  { href: "#sobre-mi", label: "Sobre mí" },
+  { href: "#habilidades", label: "Habilidades" },
+  { href: "#proyectos", label: "Proyectos" },
+  { href: "#formacion", label: "Formación" },
+  { href: "#contacto", label: "Contacto" },
+];
+---
+
+<footer class="bg-[#2b1a23] text-white">
+  <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+    <div class="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+      <div>
+        <p class="font-display text-2xl font-semibold">Gabriela Orozco Vásquez</p>
+        <p class="mt-1 text-sm text-[#f3d9e1]">Transformo datos en decisiones · Python · SQL · EDA</p>
+        <p class="mt-3 flex flex-wrap gap-2">
+          <a
+            href="https://github.com/gabi-vasquez"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rounded-full border border-white/25 px-4 py-1.5 text-sm font-semibold text-white transition-colors hover:border-white hover:bg-white hover:text-[#2b1a23]"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/search/results/all/?keywords=Gabriela%20Orozco%20V%C3%A1squez"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rounded-full border border-white/25 px-4 py-1.5 text-sm font-semibold text-white transition-colors hover:border-white hover:bg-white hover:text-[#2b1a23]"
+          >
+            LinkedIn
+          </a>
+          <a
+            href="https://www.kaggle.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rounded-full border border-white/25 px-4 py-1.5 text-sm font-semibold text-white transition-colors hover:border-white hover:bg-white hover:text-[#2b1a23]"
+          >
+            Kaggle
+          </a>
+        </p>
+      </div>
+      <nav aria-label="Navegación del pie de página">
+        <ul class="flex flex-wrap gap-x-5 gap-y-2">
+          {
+            links.map((l) => (
+              <li>
+                <a href={l.href} class="text-sm text-[#f3d9e1] underline-offset-4 hover:text-white hover:underline">
+                  {l.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </div>
+    <div class="mt-10 flex flex-col items-start justify-between gap-3 border-t border-white/15 pt-6 text-sm text-[#f3d9e1] sm:flex-row sm:items-center">
+      <p>© {year} Gabriela Orozco Vásquez · Portafolio personal</p>
+      <p>
+        Hecho con <span class="font-semibold text-white">Astro</span> + <span class="font-semibold text-white">Tailwind CSS</span>
+        · <a href="#home" class="underline underline-offset-4 hover:text-white">Volver arriba ↑</a>
+      </p>
+    </div>
+  </div>
+</footer>

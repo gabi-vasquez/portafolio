@@ -1,0 +1,35 @@
+Es un gusto presentarles a Gabriela Orozco Vásquez, una profesional en formación con un
+perfil orientado hacia la Ciencia de Datos.
+Gabriela es egresada de la Institución Universitaria Colegio Mayor del Cauca como
+Tecnóloga en Desarrollo de Software y actualmente continúa su formación profesional
+como Ingeniera Informática, mientras fortalece sus conocimientos y habilidades en el
+campo de la Ciencia de Datos.
+Su perfil se orienta hacia algo que la apasiona especialmente: transformar los datos en
+información útil para apoyar la toma de decisiones y generar soluciones a problemas
+reales. Se interesa por el análisis, exploración e interpretación de datos, combinando
+conocimientos de programación, estadística y matemáticas para identificar patrones,
+oportunidades y posibles soluciones basadas en información.
+Entre sus principales fortalezas técnicas se encuentran los conocimientos en Python y
+SQL, así como una sólida base en desarrollo de software, bases de datos y
+programación. Actualmente continúa profundizando en áreas como el Análisis
+Exploratorio de Datos (EDA), Machine Learning y Deep Learning, con el objetivo de
+fortalecer progresivamente su perfil dentro del área de Analytics y Ciencia de Datos.
+A nivel personal, Gabriela se caracteriza por su pensamiento crítico, curiosidad por
+aprender, capacidad de adaptación y atención al detalle. También cuenta con
+habilidades para el trabajo en equipo, liderazgo y comunicación, lo que le permite
+desenvolverse tanto en contextos técnicos como en espacios donde es necesario explicar
+información y resultados de manera clara.
+Gabriela se proyecta adquiriendo experiencia a través del desarrollo de proyectos reales,
+el análisis de datos y la resolución de problemas organizacionales. Su objetivo es continuar
+fortaleciendo su experiencia profesional dentro del campo de la Ciencia de Datos y, en el
+futuro, complementar su formación mediante estudios de posgrado que le permitan
+especializarse aún más en áreas relacionadas con Analytics y Data Science.
+Lo que hace especialmente interesante su perfil es su capacidad de integrar conocimientos
+de distintas disciplinas, como la programación, el desarrollo de software, las
+matemáticas y la estadística, junto con una genuina disposición para aprender
+continuamente. Su perseverancia y tolerancia frente a los desafíos le permiten asumir los
+retos que implica trabajar con problemas y datos complejos.
+Gabriela se encuentra construyendo un perfil profesional enfocado no solo en dominar
+herramientas y tecnologías relacionadas con la Ciencia de Datos, sino también en
+comprender los problemas, analizar la información y utilizar los datos para generar
+soluciones con impacto real.

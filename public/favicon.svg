@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#881337"/>
+      <stop offset="1" stop-color="#2b1a23"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <!-- G serif, centrada -->
+  <text x="256" y="330" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="290" font-weight="700" fill="#ffffff" letter-spacing="-8">G</text>
+  <!-- Barras de datos (acento teal) -->
+  <g fill="#5eead4">
+    <rect x="176" y="392" width="40" height="36" rx="9"/>
+    <rect x="228" y="368" width="40" height="60" rx="9"/>
+    <rect x="280" y="344" width="40" height="84" rx="9"/>
+  </g>
+  <circle cx="348" cy="392" r="17" fill="#f9d5e0"/>
+</svg>

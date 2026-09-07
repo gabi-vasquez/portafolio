@@ -1,0 +1,60 @@
+---
+const groups = [
+  {
+    title: "Lenguajes",
+    desc: "Para programar y consultar datos",
+    tags: ["Python", "SQL", "Java", "TypeScript"],
+  },
+  {
+    title: "Datos & ML",
+    desc: "Para explorar, analizar y predecir",
+    tags: ["Pandas", "NumPy", "Scikit-learn", "EDA", "Machine Learning"],
+  },
+  {
+    title: "Web & Bases de datos",
+    desc: "Para construir y persistir productos",
+    tags: ["Astro", "React", "Tailwind CSS", "MySQL", "PostgreSQL", "MongoDB", "Prisma"],
+  },
+  {
+    title: "Herramientas",
+    desc: "Para colaborar y desplegar",
+    tags: ["Git & GitHub", "Docker", "AWS", "GCP"],
+  },
+];
+---
+
+<section id="habilidades" aria-labelledby="skills-title" class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-24">
+  <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#0f766e]">Habilidades</p>
+  <h2 id="skills-title" class="mt-2 font-display text-3xl font-semibold text-[#2b1a23] sm:text-4xl">
+    Un stack al servicio de la pregunta
+  </h2>
+  <p class="mt-4 max-w-3xl text-base leading-relaxed text-[#57384a] sm:text-lg">
+    Herramientas de software y datos que uso para llevar un problema desde la pregunta
+    hasta una solución verificable.
+  </p>
+
+  <div class="mt-10 grid gap-5 sm:grid-cols-2">
+    {
+      groups.map((g, i) => (
+        <article class="card-lift rounded-2xl border border-[#f0ddd6] bg-white p-6 sm:p-7" aria-label={`Grupo: ${g.title}`}>
+          <div class="flex items-baseline justify-between gap-3">
+            <h3 class="font-display text-xl font-semibold text-[#2b1a23]">
+              <span aria-hidden="true" class="mr-2 font-sans text-sm font-bold text-[#be185d]">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              {g.title}
+            </h3>
+          </div>
+          <p class="mt-1 text-sm text-[#57384a]">{g.desc}</p>
+          <ul class="mt-4 flex flex-wrap gap-2" aria-label={`Tecnologías: ${g.title}`}>
+            {g.tags.map((t) => (
+              <li class="rounded-full border border-[#f0ddd6] bg-[#fffbf7] px-3.5 py-1.5 text-sm font-medium text-[#2b1a23] transition-colors hover:border-[#881337] hover:bg-[#fdf2f5] hover:text-[#881337]">
+                {t}
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))
+    }
+  </div>
+</section>

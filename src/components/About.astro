@@ -1,0 +1,65 @@
+---
+const cards = [
+  {
+    title: "Educación sólida",
+    text: "Tecnóloga en Desarrollo de Software, IU Colegio Mayor del Cauca. Hoy curso Ingeniería Informática y profundizo en Ciencia de Datos.",
+    icon: "M12 3 1 9l11 6 11-6-11-6zM5 11.5V16c0 1.5 3 3 7 3s7-1.5 7-3v-4.5l-7 3.8-7-3.8z",
+  },
+  {
+    title: "Base en software y datos",
+    text: "Años de formación en programación, bases de datos y desarrollo de software, con fortalezas en Python y SQL.",
+    icon: "M8 9l-4 3 4 3V9zm8 0v6l4-3-4-3zM13 5l-2 14h2l2-14h-2z",
+  },
+  {
+    title: "Foco Analytics",
+    text: "Análisis exploratorio (EDA), Machine Learning y Deep Learning en formación: del dato disperso a la decisión informada.",
+    icon: "M4 20V10m6 10V4m6 16v-7m4 7H2",
+  },
+];
+
+const stats = [
+  { value: "Python + SQL", label: "Fortalezas técnicas" },
+  { value: "EDA · ML · DL", label: "En formación activa" },
+  { value: "Equipo de 6", label: "Liderazgo probado" },
+];
+---
+
+<section id="sobre-mi" aria-labelledby="about-title" class="bg-white">
+  <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-24">
+    <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#0f766e]">Sobre mí</p>
+    <h2 id="about-title" class="mt-2 max-w-2xl font-display text-3xl font-semibold text-[#2b1a23] sm:text-4xl">
+      Datos con contexto, soluciones con impacto
+    </h2>
+    <p class="mt-4 max-w-3xl text-base leading-relaxed text-[#57384a] sm:text-lg">
+      Soy Gabriela Orozco Vásquez, profesional en formación orientada a la Ciencia de Datos.
+      Me apasiona transformar datos en información útil para apoyar decisiones y resolver
+      problemas reales, combinando programación, estadística y pensamiento crítico — y
+      comunicando los resultados de manera clara.
+    </p>
+
+    <div class="mt-10 grid gap-5 md:grid-cols-3">
+      {
+        cards.map((c) => (
+          <article class="card-lift rounded-2xl border border-[#f0ddd6] bg-[#fffbf7] p-6">
+            <span aria-hidden="true" class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-[#fdf2f5] text-[#881337]">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d={c.icon} /></svg>
+            </span>
+            <h3 class="mt-4 font-display text-xl font-semibold text-[#2b1a23]">{c.title}</h3>
+            <p class="mt-2 text-[15px] leading-relaxed text-[#57384a]">{c.text}</p>
+          </article>
+        ))
+      }
+    </div>
+
+    <dl class="mt-8 grid gap-4 rounded-2xl bg-[#2b1a23] p-6 text-white sm:grid-cols-3 sm:p-8">
+      {
+        stats.map((s) => (
+          <div class="border-l-2 border-[#be185d] pl-4">
+            <dt class="order-2 mt-1 text-sm text-[#f3d9e1]">{s.label}</dt>
+            <dd class="font-display text-2xl font-semibold">{s.value}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>

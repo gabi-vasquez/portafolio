@@ -1,0 +1,180 @@
+---
+import GitHubIcon from "./icons/GitHubIcon.astro";
+import LinkedInIcon from "./icons/LinkedInIcon.astro";
+import KaggleIcon from "./icons/KaggleIcon.astro";
+
+// TODO: confirmar el correo real de contacto y reemplazar CONTACT_EMAIL.
+const CONTACT_EMAIL = "contacto@gabrielaorozco.dev";
+
+type IconComponent = typeof GitHubIcon;
+
+interface ContactInfo {
+  label: string;
+  value: string;
+  href: string | null;
+  Icon: IconComponent | null;
+  pin: string | null;
+}
+
+const info: ContactInfo[] = [
+  {
+    label: "GitHub",
+    value: "github.com/gabi-vasquez",
+    href: "https://github.com/gabi-vasquez",
+    Icon: GitHubIcon,
+    pin: null,
+  },
+  {
+    label: "LinkedIn",
+    value: "Buscar: Gabriela Orozco Vásquez",
+    href: "https://www.linkedin.com/search/results/all/?keywords=Gabriela%20Orozco%20V%C3%A1squez",
+    Icon: LinkedInIcon,
+    pin: null,
+  },
+  {
+    label: "Kaggle",
+    value: "Perfil en construcción",
+    href: "https://www.kaggle.com/",
+    Icon: KaggleIcon,
+    pin: null,
+  },
+  {
+    label: "Ubicación",
+    value: "Popayán, Cauca · Colombia",
+    href: null,
+    Icon: null,
+    pin: "M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z",
+  },
+];
+---
+
+<section id="contacto" aria-labelledby="contact-title" class="bg-white">
+  <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-24">
+    <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#0f766e]">Contacto</p>
+    <h2 id="contact-title" class="mt-2 font-display text-3xl font-semibold text-[#2b1a23] sm:text-4xl">
+      ¿Tienes datos con una pregunta detrás?
+    </h2>
+    <p class="mt-4 max-w-3xl text-base leading-relaxed text-[#57384a] sm:text-lg">
+      Cuéntame tu problema: lo convertimos en análisis, método y decisiones.
+      Respondo en menos de 48 horas.
+    </p>
+
+    <div class="mt-10 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+      <div class="rounded-2xl bg-[#2b1a23] p-6 text-white sm:p-8">
+        <h3 class="font-display text-xl font-semibold">Información directa</h3>
+        <ul class="mt-5 space-y-4">
+          {
+            info.map((c) => (
+            <li class="flex items-start gap-3.5">
+              <span aria-hidden="true" class="mt-0.5 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/10 text-[#f9d5e0]">
+                {c.Icon ? (
+                  <c.Icon size={18} />
+                ) : (
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d={c.pin} /></svg>
+                )}
+              </span>
+              <span>
+                <span class="block text-xs font-bold uppercase tracking-[0.14em] text-[#f3d9e1]">{c.label}</span>
+                {c.href ? (
+                  <a href={c.href} target="_blank" rel="noopener noreferrer" class="font-medium text-white underline decoration-[#be185d] decoration-2 underline-offset-4 hover:decoration-white">
+                    {c.value}
+                  </a>
+                ) : (
+                  <span class="font-medium text-white">{c.value}</span>
+                )}
+              </span>
+            </li>
+            ))
+          }
+        </ul>
+        <p class="mt-6 border-t border-white/15 pt-4 text-sm leading-relaxed text-[#f3d9e1]">
+          Abierta a proyectos reales, análisis de datos y colaboraciones donde los datos
+          generen soluciones con impacto.
+        </p>
+      </div>
+
+      <form
+        id="contact-form"
+        data-email={CONTACT_EMAIL}
+        class="rounded-2xl border border-[#f0ddd6] bg-[#fffbf7] p-6 sm:p-8"
+        aria-label="Formulario de contacto"
+      >
+        <h3 class="font-display text-xl font-semibold text-[#2b1a23]">Escríbeme</h3>
+        <div class="mt-5 grid gap-4 sm:grid-cols-2">
+          <div>
+            <label for="cf-nombre" class="mb-1.5 block text-sm font-semibold text-[#2b1a23]">Nombre</label>
+            <input
+              id="cf-nombre"
+              name="nombre"
+              type="text"
+              required
+              autocomplete="name"
+              placeholder="Tu nombre"
+              class="w-full rounded-xl border border-[#e2c9c0] bg-white px-4 py-2.5 text-[15px] text-[#2b1a23] placeholder:text-[#a98a99] focus:border-[#0f766e]"
+            />
+          </div>
+          <div>
+            <label for="cf-email" class="mb-1.5 block text-sm font-semibold text-[#2b1a23]">Correo</label>
+            <input
+              id="cf-email"
+              name="email"
+              type="email"
+              required
+              autocomplete="email"
+              placeholder="tu@correo.com"
+              class="w-full rounded-xl border border-[#e2c9c0] bg-white px-4 py-2.5 text-[15px] text-[#2b1a23] placeholder:text-[#a98a99] focus:border-[#0f766e]"
+            />
+          </div>
+        </div>
+        <div class="mt-4">
+          <label for="cf-asunto" class="mb-1.5 block text-sm font-semibold text-[#2b1a23]">Asunto</label>
+          <input
+            id="cf-asunto"
+            name="asunto"
+            type="text"
+            placeholder="Ej. Análisis de datos para mi negocio"
+            class="w-full rounded-xl border border-[#e2c9c0] bg-white px-4 py-2.5 text-[15px] text-[#2b1a23] placeholder:text-[#a98a99] focus:border-[#0f766e]"
+          />
+        </div>
+        <div class="mt-4">
+          <label for="cf-mensaje" class="mb-1.5 block text-sm font-semibold text-[#2b1a23]">Mensaje</label>
+          <textarea
+            id="cf-mensaje"
+            name="mensaje"
+            required
+            rows="5"
+            placeholder="Cuéntame el problema, los datos que tienes y el impacto que buscas…"
+            class="w-full resize-y rounded-xl border border-[#e2c9c0] bg-white px-4 py-2.5 text-[15px] text-[#2b1a23] placeholder:text-[#a98a99] focus:border-[#0f766e]"
+          ></textarea>
+        </div>
+        <button
+          type="submit"
+          class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#881337] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#6b0f2c] sm:w-auto"
+        >
+          Enviar mensaje
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+        </button>
+        <p id="cf-aviso" role="status" class="mt-3 hidden text-sm font-medium text-[#115e59]">
+          Abriendo tu app de correo para enviar el mensaje…
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById("contact-form") as HTMLFormElement | null;
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const dest = form.dataset.email ?? "";
+    const nombre = String(data.get("nombre") ?? "").trim();
+    const email = String(data.get("email") ?? "").trim();
+    const asunto = String(data.get("asunto") ?? "").trim() || `Contacto desde el portafolio — ${nombre}`;
+    const mensaje = String(data.get("mensaje") ?? "").trim();
+    const body = `Nombre: ${nombre}\nCorreo: ${email}\n\n${mensaje}`;
+    const aviso = document.getElementById("cf-aviso");
+    aviso?.classList.remove("hidden");
+    window.location.href = `mailto:${dest}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(body)}`;
+  });
+</script>

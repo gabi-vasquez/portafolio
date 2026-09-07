@@ -1,0 +1,145 @@
+---
+import { site, absoluteUrl, asset } from "../data/site";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  noindex?: boolean;
+}
+
+const defaultTitle = `${site.name} — ${site.tagline} | Portafolio`;
+
+const {
+  title = defaultTitle,
+  description = site.description,
+  canonical = absoluteUrl("/"),
+  ogImage = absoluteUrl(site.ogImagePath),
+  noindex = false,
+} = Astro.props;
+
+const portrait = absoluteUrl(site.portraitPath);
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  mainEntity: {
+    "@type": "Person",
+    name: site.name,
+    alternateName: site.shortName,
+    jobTitle: "Científica de datos en formación · Tecnóloga en Desarrollo de Software",
+    description,
+    url: canonical,
+    image: portrait,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: site.location.city,
+      addressRegion: site.location.region,
+      addressCountry: site.location.countryCode,
+    },
+    alumniOf: {
+      "@type": "EducationalOrganization",
+      name: "Institución Universitaria Colegio Mayor del Cauca",
+    },
+    knowsAbout: [
+      "Ciencia de Datos",
+      "Análisis Exploratorio de Datos",
+      "Machine Learning",
+      "Python",
+      "SQL",
+      "Estadística",
+      "Desarrollo de Software",
+    ],
+    sameAs: [site.socials.github, site.socials.linkedin, site.socials.kaggle],
+  },
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: `${site.name} — Portafolio`,
+  url: canonical,
+  inLanguage: "es-CO",
+  author: { "@type": "Person", name: site.name },
+};
+---
+
+<!doctype html>
+<html lang={site.language}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={site.author} />
+    <meta name="keywords" content={site.keywords.join(", ")} />
+    <meta
+      name="robots"
+      content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large"}
+    />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content={site.themeColor} />
+    <meta name="geo.region" content="CO-CAU" />
+    <meta name="geo.placename" content="Popayán, Cauca, Colombia" />
+    <link rel="canonical" href={canonical} />
+
+    {/* Open Graph */}
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={site.locale} />
+    <meta property="og:site_name" content={`${site.name} — Portafolio`} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta
+      property="og:image:alt"
+      content={`${site.name} — ${site.tagline}. Python, SQL, EDA y Machine Learning.`}
+    />
+
+    {/* Twitter */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta
+      name="twitter:image:alt"
+      content={`${site.name} — ${site.tagline}. Python, SQL, EDA y Machine Learning.`}
+    />
+
+    {/* Iconos + PWA */}
+    <link rel="icon" type="image/svg+xml" href={asset("/favicon.svg")} />
+    <link rel="icon" type="image/png" sizes="32x32" href={asset("/favicon-32x32.png")} />
+    <link rel="icon" type="image/png" sizes="16x16" href={asset("/favicon-16x16.png")} />
+    <link rel="shortcut icon" href={asset("/favicon.ico")} />
+    <link rel="apple-touch-icon" href={asset("/apple-touch-icon.png")} />
+    <link rel="mask-icon" href={asset("/safari-pinned-tab.svg")} color={site.themeColor} />
+    <link rel="manifest" href={asset("/site.webmanifest")} />
+    <meta name="msapplication-TileColor" content={site.themeColor} />
+
+    {/* Datos estructurados */}
+    <script type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteJsonLd)} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="min-h-screen">
+    <a
+      href="#contenido"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-[#881337]"
+    >
+      Saltar al contenido
+    </a>
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,29 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { asset } from "../data/site";
+---
+
+<Layout
+  title="Página no encontrada — Gabriela Orozco Vásquez"
+  description="La página que buscas no existe. Vuelve al portafolio de Gabriela Orozco Vásquez: Ciencia de Datos y Desarrollo de Software."
+  noindex
+>
+  <main
+    id="contenido"
+    class="mx-auto flex min-h-[70vh] max-w-2xl flex-col items-center justify-center px-4 py-24 text-center"
+  >
+    <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#0f766e]">Error 404</p>
+    <h1 class="mt-3 font-display text-4xl font-semibold text-[#2b1a23] sm:text-5xl">
+      Esta página no tiene datos que analizar
+    </h1>
+    <p class="mt-4 text-base leading-relaxed text-[#57384a] sm:text-lg">
+      La ruta que buscas no existe o cambió. Volvamos al inicio del portafolio.
+    </p>
+    <a
+      href={asset("/")}
+      class="mt-8 inline-flex items-center gap-2 rounded-full bg-[#881337] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#6b0f2c]"
+    >
+      Volver al inicio
+    </a>
+  </main>
+</Layout>
