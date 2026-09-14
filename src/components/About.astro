@@ -29,7 +29,7 @@ const stats = [
 // Para usar YouTube en su lugar: source: "youtube", src: "https://www.youtube.com/embed/TU_ID_DEL_VIDEO"
 const video = {
   source: "archivo" as null | "youtube" | "archivo",
-  src: asset("/tecnologo-vs-ingeniero.mp4"),
+  src: asset("/video-perfil.mp4"),
   title: "Tecnólogo o Ingeniero: mi trayectoria profesional",
   description:
     "Reflexión sobre las diferencias entre el tecnólogo y el ingeniero, y cómo se relacionan con mi trayectoria de Tecnóloga en Desarrollo de Software hacia la Ingeniería Informática orientada a Ciencia de Datos.",
@@ -92,7 +92,7 @@ const video = {
               />
             </div>
           ) : video.source === "archivo" ? (
-            <video controls preload="metadata" class="aspect-video w-full" aria-label={video.title}>
+            <video controls preload="metadata" class="mx-auto h-auto max-h-[75vh] w-auto max-w-full" aria-label={video.title}>
               <source src={video.src} type="video/mp4" />
               Tu navegador no puede reproducir este video.
             </video>
