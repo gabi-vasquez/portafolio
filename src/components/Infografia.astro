@@ -1,0 +1,108 @@
+---
+// Infografía académica: Ingeniería Informática — qué es, evolución histórica y desarrollo.
+const pilares = [
+  {
+    title: "Software",
+    text: "Diseño, construcción y mantenimiento de programas y aplicaciones que resuelven problemas reales.",
+  },
+  {
+    title: "Sistemas y hardware",
+    text: "Arquitectura de computadores, sistemas operativos y la base física que ejecuta el software.",
+  },
+  {
+    title: "Redes",
+    text: "Comunicación entre sistemas: de ARPANET a internet, la nube y los sistemas distribuidos.",
+  },
+  {
+    title: "Datos e IA",
+    text: "Bases de datos, análisis e inteligencia artificial: convertir datos en decisiones.",
+  },
+];
+
+const hitos = [
+  { year: "1642", title: "Pascalina", text: "Blaise Pascal crea la primera calculadora mecánica." },
+  { year: "1837", title: "Máquina analítica", text: "Babbage la diseña y Ada Lovelace escribe el primer algoritmo." },
+  { year: "1890", title: "Tabuladora de Hollerith", text: "Procesa el censo de EE. UU. con tarjetas perforadas." },
+  { year: "1936", title: "Máquina de Turing", text: "Alan Turing define el modelo teórico de la computación." },
+  { year: "1946", title: "ENIAC", text: "Primera computadora electrónica de propósito general." },
+  { year: "1947", title: "Transistor", text: "Bell Labs lo inventa: nace la electrónica moderna." },
+  { year: "1958", title: "Circuito integrado", text: "Kilby y Noyce miniaturizan la computación." },
+  { year: "1969", title: "ARPANET", text: "Primer mensaje entre computadoras: el origen de internet." },
+  { year: "1971", title: "Microprocesador", text: "Intel 4004 pone una CPU completa en un solo chip." },
+  { year: "1981", title: "IBM PC", text: "La computación personal llega a hogares y empresas." },
+  { year: "1991", title: "Web, Linux y Python", text: "Berners-Lee publica la WWW; nacen Linux y Python." },
+  { year: "2012→", title: "Era de la IA", text: "Deep learning (AlexNet) y luego la IA generativa cambian todo." },
+];
+
+const generaciones = [
+  { gen: "1.ª", periodo: "1940 – 1956", tech: "Válvulas de vacío · ENIAC, UNIVAC" },
+  { gen: "2.ª", periodo: "1956 – 1963", tech: "Transistores · más pequeñas y fiables" },
+  { gen: "3.ª", periodo: "1964 – 1971", tech: "Circuitos integrados · sistemas operativos" },
+  { gen: "4.ª", periodo: "1971 – hoy", tech: "Microprocesadores · PC, internet, móvil" },
+  { gen: "5.ª", periodo: "Hoy – futuro", tech: "IA, nube, computación cuántica" },
+];
+---
+
+<section id="infografia" aria-labelledby="infografia-title" class="bg-[#2b1a23] text-white">
+  <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-24">
+    <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#5eead4]">Actividad académica · Infografía</p>
+    <h2 id="infografia-title" class="mt-2 max-w-3xl font-display text-3xl font-semibold sm:text-4xl">
+      Ingeniería Informática: qué es, su historia y su desarrollo
+    </h2>
+    <p class="mt-4 max-w-3xl text-base leading-relaxed text-[#f3d9e1] sm:text-lg">
+      La <strong class="text-white">Ingeniería Informática</strong> aplica principios de ingeniería al diseño,
+      construcción y gestión de sistemas computacionales: hardware, software, redes y datos.
+      Su objetivo es crear soluciones tecnológicas confiables, escalables y útiles para la sociedad.
+    </p>
+
+    <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        pilares.map((p) => (
+          <article class="rounded-2xl border border-white/15 bg-white/5 p-6">
+            <span aria-hidden="true" class="block h-1.5 w-10 rounded-full bg-[#be185d]" />
+            <h3 class="mt-4 font-display text-xl font-semibold">{p.title}</h3>
+            <p class="mt-2 text-[15px] leading-relaxed text-[#f3d9e1]">{p.text}</p>
+          </article>
+        ))
+      }
+    </div>
+
+    <h3 class="mt-14 font-display text-2xl font-semibold">Evolución histórica</h3>
+    <p class="mt-1 text-[15px] text-[#f3d9e1]">De la calculadora mecánica a la inteligencia artificial en doce hitos.</p>
+    <ol class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      {
+        hitos.map((h) => (
+          <li class="flex gap-4 rounded-2xl border border-white/15 bg-white/5 p-5">
+            <span aria-hidden="true" class="flex h-12 shrink-0 items-center rounded-xl bg-[#881337] px-3 font-display text-sm font-bold text-white">
+              {h.year}
+            </span>
+            <div>
+              <h4 class="font-display text-base font-semibold">{h.title}</h4>
+              <p class="mt-1 text-sm leading-relaxed text-[#f3d9e1]">{h.text}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+
+    <h3 class="mt-14 font-display text-2xl font-semibold">El desarrollo en 5 generaciones</h3>
+    <p class="mt-1 text-[15px] text-[#f3d9e1]">Cada salto tecnológico hizo la computación más pequeña, potente y cercana.</p>
+    <ol class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+      {
+        generaciones.map((g) => (
+          <li class="rounded-2xl border border-white/15 bg-white/5 p-5">
+            <p class="font-display text-2xl font-bold text-[#5eead4]">{g.gen}</p>
+            <p class="mt-1 text-xs font-bold uppercase tracking-[0.14em] text-white">{g.periodo}</p>
+            <p class="mt-2 text-sm leading-relaxed text-[#f3d9e1]">{g.tech}</p>
+          </li>
+        ))
+      }
+    </ol>
+
+    <p class="mt-10 rounded-2xl border border-[#be185d]/60 bg-[#881337]/20 p-6 text-[15px] leading-relaxed text-white sm:p-8">
+      <strong>Mi lugar en esta historia:</strong> como Tecnóloga en Desarrollo de Software domino la
+      construcción de soluciones; como futura Ingeniera Informática orientada a Ciencia de Datos
+      (Python, SQL, EDA, Machine Learning) quiero aportar al capítulo actual: convertir datos en decisiones.
+    </p>
+  </div>
+</section>
