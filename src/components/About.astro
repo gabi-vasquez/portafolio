@@ -1,4 +1,6 @@
 ---
+import { asset } from "../data/site";
+
 const cards = [
   {
     title: "Educación sólida",
@@ -22,6 +24,16 @@ const stats = [
   { value: "EDA · ML · DL", label: "En formación activa" },
   { value: "Equipo de 6", label: "Liderazgo probado" },
 ];
+
+// Video de perfil "Tecnólogo o Ingeniero" (video propio en public/).
+// Para usar YouTube en su lugar: source: "youtube", src: "https://www.youtube.com/embed/TU_ID_DEL_VIDEO"
+const video = {
+  source: "archivo" as null | "youtube" | "archivo",
+  src: asset("/tecnologo-vs-ingeniero.mp4"),
+  title: "Tecnólogo o Ingeniero: mi trayectoria profesional",
+  description:
+    "Reflexión sobre las diferencias entre el tecnólogo y el ingeniero, y cómo se relacionan con mi trayectoria de Tecnóloga en Desarrollo de Software hacia la Ingeniería Informática orientada a Ciencia de Datos.",
+};
 ---
 
 <section id="sobre-mi" aria-labelledby="about-title" class="bg-white">
@@ -61,5 +73,43 @@ const stats = [
         ))
       }
     </dl>
+
+    <div class="mt-10 rounded-2xl border border-[#f0ddd6] bg-[#fffbf7] p-6 sm:p-8">
+      <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#0f766e]">Video de perfil</p>
+      <h3 class="mt-2 font-display text-2xl font-semibold text-[#2b1a23]">{video.title}</h3>
+      <p class="mt-2 max-w-3xl text-[15px] leading-relaxed text-[#57384a]">{video.description}</p>
+      <div class="mt-5 overflow-hidden rounded-xl bg-[#2b1a23]">
+        {
+          video.source === "youtube" ? (
+            <div class="aspect-video w-full">
+              <iframe
+                src={video.src}
+                title={video.title}
+                class="h-full w-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy"
+              />
+            </div>
+          ) : video.source === "archivo" ? (
+            <video controls preload="metadata" class="aspect-video w-full" aria-label={video.title}>
+              <source src={video.src} type="video/mp4" />
+              Tu navegador no puede reproducir este video.
+            </video>
+          ) : (
+            <div class="flex aspect-video w-full flex-col items-center justify-center gap-2 p-6 text-center">
+              <span aria-hidden="true" class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#881337] text-white">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
+              </span>
+              <p class="font-display text-lg font-semibold text-white">Video en producción</p>
+              <p class="max-w-md text-sm leading-relaxed text-[#f3d9e1]">
+                Aquí se publicará la reflexión “Tecnólogo o Ingeniero” y su relación con mi
+                trayectoria profesional. Vuelve pronto.
+              </p>
+            </div>
+          )
+        }
+      </div>
+    </div>
   </div>
 </section>
